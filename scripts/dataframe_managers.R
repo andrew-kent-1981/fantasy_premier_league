@@ -33,6 +33,42 @@
       lst_fpl_manager_data$name_change_blocked <- NULL
       lst_fpl_manager_data$kit <- NULL
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#     Convert missing variables into NA
+      lst_fpl_manager_data$summary_overall_points <- 
+        ifelse(is.null(lst_fpl_manager_data$summary_overall_points) == TRUE,
+               NA,
+               lst_fpl_manager_data$summary_overall_points)
+      
+      lst_fpl_manager_data$summary_overall_rank <- 
+        ifelse(is.null(lst_fpl_manager_data$summary_overall_rank) == TRUE,
+               NA,
+               lst_fpl_manager_data$summary_overall_rank)
+      
+      lst_fpl_manager_data$summary_event_points <- 
+        ifelse(is.null(lst_fpl_manager_data$summary_event_points) == TRUE,
+               NA,
+               lst_fpl_manager_data$summary_event_points)
+      
+      lst_fpl_manager_data$summary_event_rank <- 
+        ifelse(is.null(lst_fpl_manager_data$summary_event_rank) == TRUE,
+               NA,
+               lst_fpl_manager_data$summary_event_rank)
+      
+      lst_fpl_manager_data$current_event <- 
+        ifelse(is.null(lst_fpl_manager_data$current_event) == TRUE,
+               NA,
+               lst_fpl_manager_data$current_event)
+      
+      lst_fpl_manager_data$last_deadline_bank <- 
+        ifelse(is.null(lst_fpl_manager_data$last_deadline_bank) == TRUE,
+               NA,
+               lst_fpl_manager_data$last_deadline_bank)
+      
+      lst_fpl_manager_data$last_deadline_value <- 
+        ifelse(is.null(lst_fpl_manager_data$last_deadline_value) == TRUE,
+               NA,
+               lst_fpl_manager_data$last_deadline_value)
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Convert the remaining list data into a data frame
       df_fpl_managers_temp <- as.data.frame(matrix(unlist(lst_fpl_manager_data),
                                             nrow = length(unlist(lst_fpl_manager_data[1]))))

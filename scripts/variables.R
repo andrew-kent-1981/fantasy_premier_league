@@ -7,7 +7,7 @@
 # This section sets all variables that are used within the data model
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Active Season
-  str_active_season <- "Season 22-23"
+  str_active_season <- "Season 23-24"
   
   str_active_season_folder <- paste(tolower(str_sub(str_active_season, start = 1,  end = 6)),
                                     str_sub(str_active_season, start = 8,  end = 9),

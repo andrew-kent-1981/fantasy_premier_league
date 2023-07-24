@@ -104,7 +104,7 @@
      str_variable_link,
      str_file_path)
 
-# FPL Manager Selections Data===================================================
+# FPL Manager Selections Data ==================================================
   for (i in 1:length(lst_fpl_managers))
   {
     str_active_fpl_manager <- lst_fpl_managers[[i]]
