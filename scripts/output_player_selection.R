@@ -86,6 +86,8 @@
                       	AND
                       	(
                         fpl_managers_data.name <> 'Spartak Kent'
+                        AND
+                        fpl_managers_data.name <> 'Paint it Maroon'
                         OR
                         fpl_managers_data.name IS NULL
                         )
@@ -135,6 +137,8 @@
                       	AND
                       	(
                         fpl_managers_data.name <> 'Spartak Kent'
+                        AND
+                        fpl_managers_data.name <> 'Paint it Maroon'
                         )
                       ORDER BY
                         fpl_manager_chips_data.event,
@@ -226,6 +230,8 @@
                       	AND
                       	(
                         fpl_managers_data.name <> 'Spartak Kent'
+                        AND
+                        fpl_managers_data.name <> 'Paint it Maroon'
                         OR
                         fpl_managers_data.name IS NULL
                         )
