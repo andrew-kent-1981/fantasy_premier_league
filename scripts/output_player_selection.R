@@ -22,7 +22,7 @@
                       	fpl_player_types_data.id AS position_id,
                       	fpl_player_types_data.singular_name_short AS position,
                       	fpl_teams_data.id AS team_id,
-                      	fpl_teams_data.short_name AS team,
+                      	fpl_teams_data.name AS team,
                       	fpl_ownership_data.id AS current_owner_id,
                       	fpl_managers_data.player_first_name AS current_owner,
                       	fpl_players_data.now_cost AS cost,
@@ -166,7 +166,7 @@
                       	fpl_player_types_data.id AS position_id,
                       	fpl_player_types_data.singular_name_short AS position,
                       	fpl_teams_data.id AS team_id,
-                      	fpl_teams_data.short_name AS team,
+                      	fpl_teams_data.name AS team,
                       	fpl_ownership_data.id AS current_owner_id,
                       	fpl_managers_data.player_first_name AS current_owner,
                       	fpl_players_data.now_cost AS cost,
@@ -429,7 +429,6 @@
                                                    df_player_selection$position_id,
                                                    df_player_selection$player_name) , ]
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  df_player_selection$player_id <- NULL
   df_player_selection$team_id <- NULL
   df_player_selection$position_id <- NULL
   df_player_selection$current_owner_id <- NULL
@@ -438,7 +437,8 @@
 # Organize Data ================================================================
 # This section organizes the variables into the desired order
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  df_player_selection <- df_player_selection[c("player_name",
+  df_player_selection <- df_player_selection[c("player_id",
+                                               "player_name",
                                                "position",
                                                "team",
                                                "current_owner",
