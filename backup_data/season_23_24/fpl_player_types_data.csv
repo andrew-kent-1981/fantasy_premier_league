@@ -1,5 +1,5 @@
 "id","plural_name","plural_name_short","singular_name","singular_name_short","squad_select","squad_min_play","squad_max_play","ui_shirt_specific","element_count"
-1,"Goalkeepers","GKP","Goalkeeper","GKP",2,1,1,TRUE,87
-2,"Defenders","DEF","Defender","DEF",5,3,5,FALSE,245
-3,"Midfielders","MID","Midfielder","MID",5,2,5,FALSE,328
-4,"Forwards","FWD","Forward","FWD",3,1,3,FALSE,98
+1,"Goalkeepers","GKP","Goalkeeper","GKP",2,1,1,TRUE,88
+2,"Defenders","DEF","Defender","DEF",5,3,5,FALSE,250
+3,"Midfielders","MID","Midfielder","MID",5,2,5,FALSE,338
+4,"Forwards","FWD","Forward","FWD",3,1,3,FALSE,99
