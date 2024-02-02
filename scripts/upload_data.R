@@ -431,6 +431,7 @@
                                player_region_name = 'nvarchar(255)',
                                player_iso_code_short = 'nvarchar(255)',
                                player_iso_code_long = 'nvarchar(255)',
+                               years_active = 'nvarchar(255)',
                                summary_overall_points = 'decimal(9, 0)',
                                summary_overall_rank = 'decimal(9, 0)',
                                summary_event_points = 'decimal(9, 0)',

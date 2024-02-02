@@ -28,7 +28,16 @@
       load(str_variable_link)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Return the Current table
-      df_fpl_manager_chips_temp <- lst_fpl_manager_history_data[["chips"]]
+      switch(length(lst_fpl_manager_history_data[["chips"]]) == 0,
+             df_fpl_manager_chips_temp <-
+               data.frame(name = NA,
+                          time = NA,
+                          event = NA),
+             NULL)
+      
+      switch(length(lst_fpl_manager_history_data[["chips"]]) != 0,
+             df_fpl_manager_chips_temp <- lst_fpl_manager_history_data[["chips"]],
+             NULL)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Rename fields
       df_fpl_manager_chips_temp <- data.frame(setNames(df_fpl_manager_chips_temp,

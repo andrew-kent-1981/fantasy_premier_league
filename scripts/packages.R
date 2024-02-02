@@ -12,3 +12,4 @@
   library(tidyr, warn.conflicts = FALSE)
   library(rstudioapi, warn.conflicts = FALSE)
   library(readxl, warn.conflicts = FALSE)
+  library(writexl, warn.conflicts = FALSE)

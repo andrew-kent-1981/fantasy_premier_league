@@ -1,7 +1,7 @@
-# Script name:  ~master_extract_data.R
+# Script name:  ~scheduled_upload_data.R
 # Written by:   Andrew Kent
-# Purpose:      This script is used to extract data from the Fantasy Premier 
-#               League API, back it up, and write it to the database.
+# Purpose:      This script is used to upload data from the Fantasy Premier 
+#               League to the database. It runs as a scheduled task.
 
 # Procedure Start ==============================================================
   dat_start_time <- Sys.time()
@@ -26,15 +26,6 @@
   source(paste(str_location_master,
                "scripts",
                "variables.R",
-               sep = "/"))
-  
-# Download & Backup Data =======================================================
-# This section downloads and backs up all available Fantasy Premier League data
-# for the current season, ready for use.
-# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  source(paste(str_location_master,
-               "scripts",
-               "scrape_data.R",
                sep = "/"))
   
 # Create Data Frame ============================================================
@@ -105,8 +96,8 @@
                "scripts",
                "dataframe_gameweeks.R",
                sep = "/"))
-# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Ownership Data
+  # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  # Ownership Data
   source(paste(str_location_master,
                "scripts",
                "dataframe_ownership.R",
@@ -136,71 +127,61 @@
                "upload_data.R",
                sep = "/"))
   
-# Create Player Selection Output ===============================================
-# This section creates the data frames that will be used within the construction
-# of the player selection output
+# Procedure End ================================================================
+# This section updates a log file that tacks when each scheduled run rook place
+# and how long it took to run.
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Results ans fixtures data frame
-  source(paste(str_location_master,
-               "scripts",
-               "output_results_and_fixtures.R",
-               sep = "/"))
+# Import previous data
+  df_previous_data <- 
+    read_excel(paste(str_location_master, 
+                     "schedule",
+                     "log_schedule.xlsx", 
+                     sep = "/"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Player form data frame
-  source(paste(str_location_master,
-               "scripts",
-               "output_player_form.R",
-               sep = "/"))
+# Count Rows
+  int_count <- nrow(df_previous_data)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Create master player selection
-  source(paste(str_location_master,
-               "scripts",
-               "output_player_selection.R",
-               sep = "/"))
+# Calculate runtime
+  dat_end_time <- Sys.time()
   
-# Create Outputs ===============================================================
-# This section creates output files from the collated data to be used in 
-# player selection and analysis
+  int_run_time <- 
+    as.numeric(round(difftime(dat_end_time,dat_start_time,
+                              units="mins"), 
+                     digits = 0))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Draft extract
+# Create new entry
+  df_temp_data <-
+    data.frame(time = ymd_hms(dat_start_time),
+               runtime = as.numeric(int_run_time),
+               count = int_count + 1,
+               description = "data upload routine run")
   
+  rm(int_count)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Results analysis
-  source(paste(str_location_master,
-               "scripts",
-               "output_results_analysis.R",
-               sep = "/"))
+# Combine Data
+  df_latest_data <-
+    rbind(df_previous_data, 
+          df_temp_data)
   
-# Clear Variables ==============================================================
-# This section clears all variables used within the script.
+  rm(df_previous_data, 
+     df_temp_data)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Data frames
-  rm(df_manager_ids)
-# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Database connection
-  rm(str_cod_server,
-     str_cod_database,
-     str_cod_db_userid,
-     str_cod_db_password)
-# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Variables
-  rm(lst_fpl_managers,
-     lst_season_list,
-     int_current_gameweek,
-     int_gameweek_range,
-     str_active_season,
-     str_location_master,
-     str_league_id,
-     str_active_upload_season,
-     str_active_season_folder)
+# Export Data
+  write_xlsx(df_latest_data, 
+             path = paste(str_location_master,
+                          "schedule",
+                          "log_schedule.xlsx",
+                          sep = "/"), 
+             col_names  = TRUE, 
+             format_headers = FALSE)
   
 # Procedure End ================================================================
-  dat_end_time <- Sys.time()
-  int_run_time <- as.numeric(round(difftime(dat_end_time,dat_start_time,
-                                            units="mins"), 
-                                   digits = 0))
-  print(paste("Process Completed:",int_run_time, "minute(s) run time"))
+  print(paste("Process Completed:",
+              int_run_time, 
+              "minute(s) run time"))
   
-  rm(dat_end_time,
+  rm(str_location_master,
+     df_latest_data,
+     dat_end_time,
      dat_start_time,
      int_run_time)

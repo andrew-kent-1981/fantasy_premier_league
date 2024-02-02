@@ -32,6 +32,7 @@
       lst_fpl_manager_data$leagues <- NULL
       lst_fpl_manager_data$name_change_blocked <- NULL
       lst_fpl_manager_data$kit <- NULL
+      lst_fpl_manager_data$entered_events <- NULL
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Convert missing variables into NA
       lst_fpl_manager_data$summary_overall_points <- 
@@ -84,6 +85,7 @@
                                                    "player_region_name",
                                                    "player_iso_code_short",
                                                    "player_iso_code_long",
+                                                   "years_active",
                                                    "summary_overall_points",
                                                    "summary_overall_rank",
                                                    "summary_event_points",
