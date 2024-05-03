@@ -127,6 +127,30 @@
                "upload_data.R",
                sep = "/"))
   
+# Clear Variables ==============================================================
+# This section clears all variables used within the script.
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Data frames
+  rm(df_manager_ids)
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Database connection
+  rm(str_cod_server,
+     str_cod_database,
+     str_cod_db_userid,
+     str_cod_db_password)
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Variables
+  rm(lst_fpl_managers,
+     lst_season_list,
+     int_current_gameweek,
+     int_gameweek_range,
+     int_player_selection_gameweek,
+     str_active_season,
+     str_league_id,
+     str_active_season_folder,
+     str_active_upload_season,
+     str_season_name)
+  
 # Procedure End ================================================================
 # This section updates a log file that tacks when each scheduled run rook place
 # and how long it took to run.

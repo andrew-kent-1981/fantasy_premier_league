@@ -13,3 +13,4 @@
   library(rstudioapi, warn.conflicts = FALSE)
   library(readxl, warn.conflicts = FALSE)
   library(writexl, warn.conflicts = FALSE)
+  library(jsonlite, warn.conflicts = FALSE)
