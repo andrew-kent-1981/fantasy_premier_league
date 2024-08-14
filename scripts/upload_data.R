@@ -22,7 +22,8 @@
                                                   sep = ""), 
                                              header = TRUE,
                                              sep = ",",
-                                             na.strings = c("","NA"))
+                                             na.strings = c("","NA"),
+                                            fileEncoding = "latin1")
       
       df_fpl_managers_data_temp$season_name <- paste("20",
                                                      str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -57,7 +58,8 @@
                                                                 sep = ""), 
                                                           header = TRUE,
                                                           sep = ",",
-                                                          na.strings = c("","NA"))
+                                                          na.strings = c("","NA"),
+                                                          fileEncoding = "latin1")
       
       df_fpl_manager_current_season_data_temp$season_name <- paste("20",
                                                                    str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -89,7 +91,8 @@
                                                            sep = ""), 
                                                      header = TRUE,
                                                      sep = ",",
-                                                     na.strings = c("","NA"))
+                                                     na.strings = c("","NA"),
+                                                     fileEncoding = "latin1")
       
       df_fpl_manager_transfers_data_temp$season_name <- paste("20",
                                                               str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -124,7 +127,8 @@
                                                        sep = ""), 
                                                  header = TRUE,
                                                  sep = ",",
-                                                 na.strings = c("","NA"))
+                                                 na.strings = c("","NA"),
+                                                 fileEncoding = "latin1")
       
       df_fpl_manager_chips_data_temp$season_name <- paste("20",
                                                           str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -159,7 +163,8 @@
                                                          sep = ""), 
                                                    header = TRUE,
                                                    sep = ",",
-                                                   na.strings = c("","NA"))
+                                                   na.strings = c("","NA"),
+                                                   fileEncoding = "latin1")
       
       df_fpl_manager_history_data <- plyr::rbind.fill(df_fpl_manager_history_data, 
                                                       df_fpl_manager_history_data_temp)
@@ -185,7 +190,8 @@
                                                   sep = ""), 
                                             header = TRUE,
                                             sep = ",",
-                                            na.strings = c("","NA"))
+                                            na.strings = c("","NA"),
+                                            fileEncoding = "latin1")
       
       df_fpl_fixtures_data_temp$season_name <- paste("20",
                                                      str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -220,7 +226,8 @@
                                                sep = ""), 
                                          header = TRUE,
                                          sep = ",",
-                                         na.strings = c("","NA"))
+                                         na.strings = c("","NA"),
+                                         fileEncoding = "latin1")
       
       df_fpl_teams_data_temp$season_name <- paste("20",
                                                   str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -253,7 +260,8 @@
                                            header = TRUE,
                                            fileEncoding="latin1",
                                            sep = ",",
-                                           na.strings = c("","NA"))
+                                           na.strings = c("","NA"),
+                                           fileEncoding = "latin1")
       
       df_fpl_players_data_temp$season_name <- paste("20",
                                                     str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -288,7 +296,8 @@
                                                       sep = ""), 
                                                 header = TRUE,
                                                 sep = ",",
-                                                na.strings = c("","NA"))
+                                                na.strings = c("","NA"),
+                                                fileEncoding = "latin1")
       
       df_fpl_player_types_data_temp$season_name <- paste("20",
                                                          str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -320,7 +329,8 @@
                                                         sep = ""), 
                                                   header = TRUE,
                                                   sep = ",",
-                                                  na.strings = c("","NA"))
+                                                  na.strings = c("","NA"),
+                                                  fileEncoding = "latin1")
       
       df_fpl_player_history_data_temp$season_name <- paste("20",
                                                            str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -355,7 +365,8 @@
                                                    sep = ""), 
                                              header = TRUE,
                                              sep = ",",
-                                             na.strings = c("","NA"))
+                                             na.strings = c("","NA"),
+                                             fileEncoding = "latin1")
       
       df_fpl_gameweeks_data_temp$season_name <- paste("20",
                                                       str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -387,7 +398,8 @@
                                                    sep = ""), 
                                              header = TRUE,
                                              sep = ",",
-                                             na.strings = c("","NA"))
+                                             na.strings = c("","NA"),
+                                             fileEncoding = "latin1")
       
       df_fpl_ownership_data_temp$season_name <- paste("20",
                                                       str_sub(str_active_upload_season, start = 8,  end = 9),
