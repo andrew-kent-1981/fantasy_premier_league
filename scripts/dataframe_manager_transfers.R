@@ -28,7 +28,20 @@
       load(str_variable_link)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Convert the list data into a data frame
-      df_fpl_manager_transfers_data_data_temp <- lst_fpl_manager_transfers_data
+      switch(length(lst_fpl_manager_transfers_data) == 0,
+             df_fpl_manager_transfers_data_data_temp <-
+               data.frame(element_in = NA,
+                          element_in_cost = NA,
+                          element_out = NA,
+                          element_out_cost = NA,
+                          entry = str_active_fpl_manager,
+                          event = NA,
+                          time = NA),
+             NULL)
+      
+      switch(length(lst_fpl_manager_transfers_data) != 0,
+             df_fpl_manager_transfers_data_data_temp <- lst_fpl_manager_transfers_data,
+             NULL)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Bind the extracted data into the master list of FPL ownership data before
 #     repeating the process

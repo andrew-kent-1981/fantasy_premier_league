@@ -258,7 +258,6 @@
                                                  "fpl_players_data.csv", 
                                                  sep = ""), 
                                            header = TRUE,
-                                           fileEncoding="latin1",
                                            sep = ",",
                                            na.strings = c("","NA"),
                                            fileEncoding = "latin1")
