@@ -3,6 +3,18 @@
 # Purpose:      Central script for determining all variables that are used
 #               within the project.
 
+# Get Windows Username ========================================================
+# Dynamically retrieves the username of the logged-in Windows user.
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Windows username from environment variable
+  str_windows_username <- Sys.getenv("USERNAME")
+
+# Project Variables ============================================================
+# This section sets the variables needed for the project.
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Set project name.
+  str_project_name <- "Fantasy Premier League"
+
 # Set Variables ================================================================
 # This section sets all variables that are used within the data model
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

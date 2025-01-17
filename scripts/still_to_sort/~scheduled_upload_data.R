@@ -10,32 +10,28 @@
 # This section loads all variables used within the script.
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Determine where the R script is located
-  str_location_master <-paste("//edin-nhq-nas2/DeptData/PPU/",
-                              "MIDept/3_All Staff Folders/Clinical Outcomes Analysis Team/",
-                              "02 Projects/04 R Projects/",
-                              "fantasy_premier_league",
-                              sep = "")
+  str_location_master <- 
+    file.path("//BUSINT-TS1/sas_business_intelligence",
+              "sas_bi_clinical_outcomes/r_projects",
+              "fantasy_premier_league")
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # load all packages
-  source(paste(str_location_master,
-               "scripts",
-               "packages.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "packages.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Load all variables
-  source(paste(str_location_master,
-               "scripts",
-               "variables.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "variables.R"))
   
 # Create Data Frame ============================================================
 # This section creates a data frames of all available data.
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Manager Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_managers.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_managers.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Manager Current Season Data
   source(paste(str_location_master,
@@ -44,64 +40,54 @@
                sep = "/"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Manager Transfers Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_manager_transfers.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_manager_transfers.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Manager Chips Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_manager_chips.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_manager_chips.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Manager History Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_manager_history.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_manager_history.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Fixtures Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_fixtures.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_fixtures.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Teams Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_teams.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_teams.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Players Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_players.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_players.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Player Types Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_player_types.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_player_types.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Player History Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_player_history.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_player_history.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Gameweeks Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_gameweeks.R",
-               sep = "/"))
-  # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  # Ownership Data
-  source(paste(str_location_master,
-               "scripts",
-               "dataframe_ownership.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_gameweeks.R"))
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Ownership Data
+  source(file.path(str_location_master,
+                   "scripts",
+                   "dataframe_ownership.R"))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Clear completed data frames
   rm(df_fpl_managers_data,
@@ -122,10 +108,9 @@
 # data to the database
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data
-  source(paste(str_location_master,
-               "scripts",
-               "upload_data.R",
-               sep = "/"))
+  source(file.path(str_location_master,
+                   "scripts",
+                   "upload_data.R"))
   
 # Clear Variables ==============================================================
 # This section clears all variables used within the script.

@@ -8,12 +8,12 @@
 # Connect to database and return the data into a data frame
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Connect to database
-db_connection_cod <- DBI::dbConnect(odbc::odbc(),
-                                    Driver = "{SQL Server}",
-                                    Server = str_cod_server,
-                                    Database = str_cod_database,
-                                    UID = str_cod_db_userid,
-                                    PWD = str_cod_db_password)
+  db_connection_cod <- DBI::dbConnect(odbc::odbc(),
+                                      Driver = "{SQL Server}",
+                                      Server = str_cod_server,
+                                      Database = str_cod_database,
+                                      UID = str_cod_db_userid,
+                                      PWD = str_cod_db_password)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Create SQL query
   sql_query <- paste("-- RStudio Process -- Andrew Kent
