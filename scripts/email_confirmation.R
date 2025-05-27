@@ -22,22 +22,38 @@
 # ensuring that both the body and footer are included in the message.
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Email body.
-  email_body <- paste(
-    "**Subject:** Fantasy Premier League Data Update",
+  email_body <- paste0(
     "<p>Dear Team,</p>",
-    "<p>The Fantasy Premier League data has been successfully updated and is now available. Below are the key details of the update:</p>",
+    
+    "<p>The Fantasy Premier League (FPL) data model has been successfully updated. Please find a summary of the update below:</p>",
+    
     "<ul>",
-    "<li>Data includes all player statistics and season information as of the latest update.</li>",
-    "<li>The update integrates data for the following seasons: ", paste(lst_season_list, collapse = ", "), ".</li>",
-    "<li>The update was completed on ", Sys.Date(), ".</li>",
+    "<li><strong>Data Coverage:</strong> All player statistics and season information up to <strong>", format(Sys.Date(), "%d %B %Y"), "</strong>.</li>",
+    "<li><strong>Update Status:</strong> Completed successfully with no errors reported.</li>",
     "</ul>",
-    "<p>Please ensure that you use the latest data for your analysis and planning.</p>",
-    "<p>Kind regards,</p>",
-    "<p>Andy Kent</p>",
-    "<p><em>Fantasy Premier League Analysis Team</em></p>",
-    sep = ""
+    
+    "<p><strong>Seasons included in this update:</strong></p>",
+    "<table style='border-collapse: collapse; width: 50%; border: 1px solid #ccc;'>",
+    "<thead>",
+    "<tr><th style='padding: 8px; text-align: left; background-color: #f2f2f2;'>Season</th></tr>",
+    "</thead>",
+    "<tbody>",
+    paste(
+      sapply(lst_season_list, function(season) {
+        paste0("<tr><td style='padding: 8px; border: 1px solid #ccc;'>", season, "</td></tr>")
+      }),
+      collapse = ""
+    ),
+    "</tbody>",
+    "</table>",
+    
+    "<p>Please make sure to reference the latest data in your analysis and dashboards going forward. If you encounter any issues or have questions, feel free to reach out.</p>",
+    
+    "<p>Best regards,</p>",
+    "<p>Andy Kent<br/><em>Fantasy Premier League Analysis Team</em></p>"
   )
-  # Email footer
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Email footer
   email_footer <- paste(
     "For more information about the Fantasy Premier League data updates, ",
     "please contact [Andrew Kent](andrew.kent@nhs.scot) or visit our ",

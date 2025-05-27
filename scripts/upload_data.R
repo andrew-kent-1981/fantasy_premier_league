@@ -23,7 +23,7 @@
                                              header = TRUE,
                                              sep = ",",
                                              na.strings = c("","NA"),
-                                            fileEncoding = "Windows-1252")
+                                             fileEncoding = "Windows-1252")
       
       df_fpl_managers_data_temp$season_name <- paste("20",
                                                      str_sub(str_active_upload_season, start = 8,  end = 9),
@@ -419,15 +419,14 @@
 # use within future analysis
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Connect to database
-  db_connection_cod <- DBI::dbConnect(odbc::odbc(),
-                                      Driver = "{SQL Server}",
-                                      Server = str_cod_server,
-                                      Database = str_cod_database,
-                                      UID = str_cod_db_userid,
-                                      PWD = str_cod_db_password)
+  db_connection_bi_cod <-
+    DBI::dbConnect(odbc::odbc(),
+                   Driver = "{SQL Server}",
+                   Server = str_bi_cod_server,
+                   Database = str_bi_cod_database)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_managers_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_managers_data",
                df_fpl_managers_data,
                append = FALSE,
@@ -455,7 +454,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_managers_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_manager_current_season_data",
                df_fpl_manager_current_season_data,
                append = FALSE,
@@ -476,7 +475,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_manager_transfers_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_manager_transfers_data",
                df_fpl_manager_transfers_data,
                append = FALSE,
@@ -492,7 +491,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_manager_chips_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_manager_chips_data",
                df_fpl_manager_chips_data,
                append = FALSE,
@@ -505,7 +504,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_manager_history_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_manager_history_data",
                df_fpl_manager_history_data,
                append = FALSE,
@@ -517,7 +516,7 @@
                                id = 'decimal(9, 0)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_fixtures_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_fixtures_data",
                df_fpl_fixtures_data,
                append = FALSE,
@@ -542,7 +541,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_teams_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_teams_data",
                df_fpl_teams_data,
                append = FALSE,
@@ -572,7 +571,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_players_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_players_data",
                df_fpl_players_data,
                append = FALSE,
@@ -669,7 +668,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_player_types_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_player_types_data",
                df_fpl_player_types_data,
                append = FALSE,
@@ -688,7 +687,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_player_history_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_player_history_data",
                df_fpl_player_history_data,
                append = FALSE,
@@ -733,7 +732,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_gameweeks_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_gameweeks_data",
                df_fpl_gameweeks_data,
                append = FALSE,
@@ -768,7 +767,7 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Upload data - df_fpl_ownership_data
-  dbWriteTable(db_connection_cod,
+  dbWriteTable(db_connection_bi_cod,
                "fpl_ownership_data",
                df_fpl_ownership_data,
                append = FALSE,
@@ -784,9 +783,9 @@
                                season_name = 'nvarchar(255)'))
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Disconnect from database
-  dbDisconnect(db_connection_cod)
+  dbDisconnect(db_connection_bi_cod)
   
-  rm(db_connection_cod)
+  rm(db_connection_bi_cod)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Clear completed data frames
   rm(df_fpl_managers_data,

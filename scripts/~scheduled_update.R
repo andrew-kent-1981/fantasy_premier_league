@@ -168,10 +168,8 @@
   rm(df_manager_ids)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Database connection
-  rm(str_cod_server,
-     str_cod_database,
-     str_cod_db_userid,
-     str_cod_db_password)
+  rm(str_bi_cod_server,
+     str_bi_cod_database)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Variables
   rm(str_active_upload_season,

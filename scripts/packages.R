@@ -26,4 +26,4 @@
   library(tidyverse, warn.conflicts = FALSE)    # Collection of data manipulation tools
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Visualization and reporting.
-library(blastula, warn.conflicts = FALSE)     # Email reporting
+  library(blastula, warn.conflicts = FALSE)     # Email reporting

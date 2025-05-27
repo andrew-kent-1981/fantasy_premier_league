@@ -38,8 +38,11 @@
       list.files(path = str_location_obsidian, 
                         full.names = TRUE)
 #   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-#   Delete the files
-    file.remove(lst_files_to_delete)
+#   Delete the files if the Windows username matches "E9886503".
+    if (str_windows_username == "E9886503") 
+    {
+      file.remove(lst_files_to_delete)
+    }
 #   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #   Clear variables.
     rm(lst_files_to_delete)

@@ -32,11 +32,9 @@
                            str_sub(str_active_season, start = 11,  end = 12),
                            sep = "")
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Load Variables for connecting to the Clinical Outcomes DataMart
-  str_cod_server <- "WEST-EMDC-MI4"
-  str_cod_database <- "Clinical_Outcomes_Analysis"
-  str_cod_db_userid <- "E9886503"
-  str_cod_db_password <- "password"
+# Load Variables for connecting to the Clinical Outcomes database
+  str_bi_cod_server <- "EACCSQL2\\BI"
+  str_bi_cod_database <- "sas_bi_clinical_outcomes_dev"
 
 # FPL Managers & League IDs ====================================================
 # This section determines the IDs of each manager and the league they play in.
