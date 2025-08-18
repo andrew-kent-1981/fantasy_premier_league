@@ -33,6 +33,7 @@
       lst_fpl_manager_data$name_change_blocked <- NULL
       lst_fpl_manager_data$kit <- NULL
       lst_fpl_manager_data$entered_events <- NULL
+      lst_fpl_manager_data$club_badge_src <- NULL
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Convert missing variables into NA
       lst_fpl_manager_data$summary_overall_points <- 
