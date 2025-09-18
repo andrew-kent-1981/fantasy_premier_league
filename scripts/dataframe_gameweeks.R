@@ -29,6 +29,7 @@
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Remove fields that are not needed
       df_fpl_gameweeks_data_temp$explain <- NULL
+      df_fpl_gameweeks_data_temp$modified <- NULL
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #     Convert list into a data frame
       df_fpl_gameweeks_data_temp <- as.data.frame(matrix(unlist(df_fpl_gameweeks_data_temp), nrow=length(unlist(df_fpl_gameweeks_data_temp[1]))))
@@ -53,6 +54,10 @@
                                                           "creativity",
                                                           "threat",
                                                           "ict_index",
+                                                          "clearances_blocks_interceptions",
+                                                          "recoveries",
+                                                          "tackles",
+                                                          "defensive_contribution",
                                                           "starts",
                                                           "expected_goals",
                                                           "expected_assists",
