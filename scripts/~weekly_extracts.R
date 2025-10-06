@@ -472,7 +472,8 @@ sql_query <- paste("
         THEN 'Benched'
         ELSE 'Played'
       END                                                             AS match_status,
-    	fpl_gameweeks_data.total_points                                 AS total_points
+      fpl_gameweeks_data.total_points                                 AS points_scored,
+    	fpl_gameweeks_data.total_points * fpl_ownership_data.multiplier AS final_points
     FROM 
     	[", str_bi_cod_database,"].[dbo].[fpl_ownership_data]
     	LEFT JOIN [", str_bi_cod_database,"].[dbo].[fpl_players_data] AS fpl_players_data
